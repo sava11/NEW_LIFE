@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mats/objs/cr_lvls/line.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mats/objs/door/door.gd" type="Script" id=2]
+
+[node name="dor" type="Node2D"]
+z_index = -1
+script = ExtResource( 2 )
+
+[node name="p" parent="." instance=ExtResource( 1 )]
+color = Color( 0.556863, 0.556863, 0.556863, 1 )
+polygon = PoolVector2Array( -5, 0, -5, 80, 5, 80, 5, 0 )
+
+[node name="p" parent="p" index="0"]
+mode = 1
+
+[editable path="p"]

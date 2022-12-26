@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://matireals/objects/stk/stk.gd" type="Script" id=1]
+[ext_resource path="res://matireals/objects/key_lock/key_lock.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 35.0
+
+[node name="stk" type="Area2D" groups=["SN"]]
+z_index = -1
+script = ExtResource( 1 )
+acol = Color( 0.478431, 1, 0, 1 )
+bcol = Color( 1, 0, 0, 1 )
+
+[node name="p" type="Polygon2D" parent="."]
+position = Vector2( 4, 0 )
+polygon = PoolVector2Array( -8, -32, -8, 16, 0, 16, 0, -32 )
+
+[node name="c" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="t" type="Timer" parent="."]
+
+[node name="key_lock" parent="." instance=ExtResource( 2 )]
+
+[node name="key" parent="key_lock" index="0"]
+active = true
+
+[connection signal="body_entered" from="." to="." method="_on_stk_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_stk_body_exited"]
+[connection signal="timeout" from="t" to="." method="_on_t_timeout"]
+
+[editable path="key_lock"]

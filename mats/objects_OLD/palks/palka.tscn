@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://matireals/objects/palks/palki.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0
+
+[node name="pl" type="StaticBody2D" groups=["palkis"]]
+collision_layer = 2147483777
+collision_mask = 129
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+collor = Color( 0, 0.952941, 1, 1 )
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="pj" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("..")
+disable_collision = false
+
+[node name="a" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="c" type="CollisionShape2D" parent="a"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="a" to="." method="in_p"]
+[connection signal="body_exited" from="a" to="." method="_on_a_body_exited"]

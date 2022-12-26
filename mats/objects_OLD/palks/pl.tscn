@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://matireals/objects/palks/pl.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 41.9762
+
+[node name="pl" type="RigidBody2D"]
+z_index = -1
+collision_layer = 129
+mode = 1
+can_sleep = false
+script = ExtResource( 1 )
+collor = Color( 0.0705882, 0.929412, 0.847059, 1 )
+
+[node name="pj" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("..")
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="a" type="Area2D" parent="."]
+
+[node name="c" type="CollisionShape2D" parent="a"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="a" to="." method="_on_a_body_entered"]
+[connection signal="body_exited" from="a" to="." method="_on_a_body_exited"]

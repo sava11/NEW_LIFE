@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://matireals/nodes/world/water.shader" type="Shader" id=1]
+
+[resource]
+render_priority = 1
+shader = ExtResource( 1 )
+shader_param/blue_tint = Color( 0, 0.109804, 1, 1 )
+shader_param/edge_lower = 3.771
+shader_param/sprite_scale = Vector2( 1, 2.333 )
+shader_param/scale_x = 6.236
+shader_param/per = 4.591
+shader_param/sv = 0.676
+shader_param/nas = 0.299
+shader_param/sp1 = 0.414
+shader_param/sp2 = 1.045
+shader_param/sp3 = 0.441
+shader_param/sp4 = 1.608
+shader_param/zatem = 1.415
+shader_param/zatem1 = 0.417
+shader_param/pena = 0.593
+shader_param/wave_sp1 = 3.36
+shader_param/wave_sp2 = 74.589
+shader_param/wave_sp3 = 0.0
+shader_param/cv_p = -0.225

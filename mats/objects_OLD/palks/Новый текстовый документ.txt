@@ -1,0 +1,52 @@
+extends StaticBody2D
+var in_=false
+var ba
+export(Color) var collor=Color()
+func clean():
+	if ba!=null:
+		$pj.node_a=$pj.get_path()
+		ba.mode=RigidBody2D.MODE_CHARACTER
+		ba.rotation_degrees=0
+		ba.on_pl=false
+		ba=null
+func _draw():
+	draw_circle(Vector2(0,0),$col.shape.radius,collor)
+func _physics_process(delta):
+	if ba!=null:
+		#var walk = (Input.get_action_strength("right") - Input.get_action_strength("left")) 
+		#var walk=get_tree().current_scene.get_node("CanvasLayer/Control/s/tb").get_value().x
+		#var rg = (global_position-ba.global_position)
+		#var ang=(180/PI)*-atan2(-rg[1], rg[0])+(90*walk)
+		var rg = (global_position-ba.global_position)
+		var ang=(180/PI)*-atan2(-rg[1], rg[0])
+		#ba.set_deferred("rotation_degrees",ang+90)
+		if Input.is_action_just_pressed("space") and ba!=null:
+			#ba.set_linear_velocity(Vector2(cos(deg2rad(ang)),sin(deg2rad(ang)))*ba.F)
+			$pj.node_a=$pj.get_path()
+			ba.rotation_degrees=0
+			ba.mode=RigidBody2D.MODE_CHARACTER
+	else:
+		$pj.node_a=$pj.get_path()
+func in_p(b):
+	print("Sfdsf")
+	var rg = (global_position-b.global_position)
+	var ang=(180/PI)*-atan2(-rg[1], rg[0])
+	b.set_linear_velocity(Vector2(0,0))
+	b.set_deferred("mode",RigidBody2D.MODE_RIGID)
+	b.global_position=global_position-Vector2(cos(deg2rad(ang)),sin(deg2rad(ang)))*60
+	print(b.global_position)
+	b.set_deferred("rotation_degrees",ang+90)
+	#b.rotation_degrees=ang+90
+	ba=b
+	b.on_pl=true
+	$pj.node_a=ba.get_path()
+	in_=true
+
+
+func _on_a_body_exited(b):
+	ba=null
+	in_=false
+	$pj.node_a=$pj.get_path()
+	b.set_deferred("rotation_degrees",0)
+	b.set_deferred("mode",RigidBody2D.MODE_CHARACTER)
+	b.on_pl=false

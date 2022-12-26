@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://mats/objects_OLD/door/doors.gd" type="Script" id=1]
+[ext_resource path="res://mats/objects_OLD/cr_lvls/line.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mats/objects_OLD/key_lock/key_lock.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 75, 125 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 2, 150 )
+
+[node name="dor" type="Node2D" groups=["SN"]]
+script = ExtResource( 1 )
+door_way = 100.0
+
+[node name="a" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 82
+
+[node name="c" type="CollisionShape2D" parent="a"]
+shape = SubResource( 1 )
+
+[node name="a2" type="Area2D" parent="."]
+
+[node name="c" type="CollisionShape2D" parent="a2"]
+shape = SubResource( 2 )
+
+[node name="key_lock" parent="." instance=ExtResource( 3 )]
+
+[node name="c" parent="." instance=ExtResource( 2 )]
+color = Color( 0.537255, 0.537255, 0.537255, 1 )
+polygon = PoolVector2Array( -5, 0, -5, -125, 5, -125, 5, 0 )
+
+[node name="c2" parent="." instance=ExtResource( 2 )]
+color = Color( 0.537255, 0.537255, 0.537255, 1 )
+polygon = PoolVector2Array( -5, 125, 5, 125, 5, 0, -5, 0 )
+
+[connection signal="body_entered" from="a" to="." method="_on_a_body_entered"]
+[connection signal="body_exited" from="a" to="." method="_on_a_body_exited"]
+[connection signal="body_entered" from="a2" to="." method="_on_a2_body_entered"]
+
+[editable path="key_lock"]

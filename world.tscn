@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://mats/objs/cr_lvls/line.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://console_com.gd" type="Script" id=3]
+[ext_resource path="res://mats/objs/cube/cube.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mats/menu/settings/settings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mats/audios/alarm.wav" type="AudioStream" id=6]
+[ext_resource path="res://mats/objs/audio/aud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mats/objs/door/door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mats/objs/tools/auto_enebled.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48.75, 60 )
+
+[node name="world" type="Node2D"]
+
+[node name="cm" type="Camera2D" parent="."]
+position = Vector2( 350, 480 )
+rotating = true
+current = true
+process_mode = 0
+smoothing_enabled = true
+smoothing_speed = 10.0
+
+[node name="space" type="Node2D" parent="."]
+
+[node name="l1" type="Node2D" parent="space"]
+
+[node name="cube" parent="space/l1" instance=ExtResource( 4 )]
+position = Vector2( 285, 255 )
+
+[node name="dor2" parent="space/l1" instance=ExtResource( 8 )]
+position = Vector2( 395, 640 )
+rotation = 3.14159
+auto_up = true
+
+[node name="a" parent="space/l1/dor2" instance=ExtResource( 9 )]
+collision_mask = 66
+
+[node name="c" parent="space/l1/dor2/a" index="0"]
+position = Vector2( 0, 60 )
+shape = SubResource( 1 )
+
+[node name="p" parent="space/l1" instance=ExtResource( 1 )]
+polygon = PoolVector2Array( 0, 0, 0, 720, 880, 720, 880, 0, 840, 0, 840, 680, 40, 680, 40, 0 )
+
+[node name="aud" parent="space/l1" instance=ExtResource( 7 )]
+position = Vector2( 370, 470 )
+time = 0.91
+asm = ExtResource( 6 )
+busName = "env"
+play = true
+
+[node name="dor" parent="space/l1" instance=ExtResource( 8 )]
+position = Vector2( 390, 510 )
+rotation = 1.5708
+enebled = false
+up = 130.0
+auto_up = true
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="pl" parent="players" instance=ExtResource( 2 )]
+position = Vector2( 350, 480 )
+__meta__ = {
+"_edit_group_": true
+}
+airfric = 200.0
+
+[node name="rt" parent="players/pl" index="2"]
+remote_path = NodePath("../../../cm")
+
+[node name="cl" type="CanvasLayer" parent="."]
+
+[node name="all" type="Control" parent="cl"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="menu" type="Control" parent="cl/all"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -490, -130 )
+mouse_filter = 2
+
+[node name="buttons" type="Control" parent="cl/all/menu"]
+
+[node name="cnt" type="Button" parent="cl/all/menu/buttons"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "continue"
+
+[node name="stng" type="Button" parent="cl/all/menu/buttons"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "settings"
+
+[node name="ext" type="Button" parent="cl/all/menu/buttons"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "exit"
+
+[node name="settings" parent="cl/all/menu" instance=ExtResource( 5 )]
+visible = false
+
+[node name="emenu" type="Panel" parent="cl/all/menu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="c" type="Button" parent="cl/all/menu/emenu"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="cws" type="Button" parent="cl/all/menu/emenu"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="ex" type="Button" parent="cl/all/menu/emenu"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="console" type="LineEdit" parent="cl/all"]
+pause_mode = 2
+margin_right = 180.0
+margin_bottom = 26.0
+expand_to_text_length = true
+clear_button_enabled = true
+shortcut_keys_enabled = false
+selecting_enabled = false
+placeholder_text = "console"
+script = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="cl/all/console" to="cl/all/console" method="_on_console_mouse_entered"]
+[connection signal="mouse_exited" from="cl/all/console" to="cl/all/console" method="_on_console_mouse_exited"]
+
+[editable path="space/l1/dor2"]
+[editable path="space/l1/dor2/p"]
+[editable path="space/l1/dor2/a"]
+[editable path="space/l1/p"]
+[editable path="space/l1/dor"]
+[editable path="space/l1/dor/p"]
+[editable path="players/pl"]

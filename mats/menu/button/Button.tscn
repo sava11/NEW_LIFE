@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mats/menu/button/button.gd" type="Script" id=2]
+
+[node name="button" type="Button"]
+margin_right = 150.0
+margin_bottom = 50.0
+text = "text"
+script = ExtResource( 2 )
+
+[node name="asp" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

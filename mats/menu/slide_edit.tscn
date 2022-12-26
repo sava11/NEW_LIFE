@@ -1,0 +1,170 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://matireals/main_menu/slide_edit.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxTexture" id=10]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.156863, 0.407843, 0.490196, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.219608, 0.262745, 0.341176, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.203922, 0.341176, 0.388235, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.262745, 0.341176, 1 )
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.219608, 0.262745, 0.341176, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.443137, 0.156863, 0.866667, 1 )
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.219608, 0.262745, 0.341176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0509804, 0.756863, 0.741176, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id=8]
+Button/colors/font_color = Color( 0.956863, 0.427451, 0.427451, 1 )
+Button/colors/font_color_focus = Color( 0.956863, 0.427451, 0.427451, 1 )
+Button/styles/focus = SubResource( 10 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 5 )
+Panel/styles/panel = SubResource( 1 )
+TextEdit/colors/completion_background_color = Color( 0.17, 0.16, 0.2, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.87, 0.87, 0.87, 0.13 )
+TextEdit/colors/completion_font_color = Color( 0.67, 0.67, 0.67, 1 )
+TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/completion_selected_color = Color( 0.26, 0.26, 0.27, 1 )
+TextEdit/colors/current_line_color = Color( 0.25, 0.25, 0.26, 0.8 )
+TextEdit/colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+TextEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.88, 0.88, 0.88, 0.5 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0.4, 0.64, 0.81, 1 )
+TextEdit/colors/line_number_color = Color( 0.67, 0.67, 0.67, 0.4 )
+TextEdit/colors/mark_color = Color( 1, 0.4, 0.4, 0.4 )
+TextEdit/colors/member_variable_color = Color( 0.9, 0.31, 0.35, 1 )
+TextEdit/colors/number_color = Color( 0.92, 0.58, 0.2, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0.67, 0.78, 0.67, 0.6 )
+TextEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+TextEdit/colors/symbol_color = Color( 0.94, 0.94, 0.94, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0.8, 0.9, 0.9, 0.15 )
+TextEdit/styles/normal = SubResource( 9 )
+TextEdit/styles/read_only = SubResource( 9 )
+VSlider/styles/grabber_area = SubResource( 6 )
+VSlider/styles/grabber_area_highlight = SubResource( 6 )
+VSlider/styles/slider = SubResource( 7 )
+
+[node name="slide_edit" type="Control" groups=["SN"]]
+margin_right = 60.0
+margin_bottom = 189.0
+theme = SubResource( 8 )
+script = ExtResource( 1 )
+
+[node name="te" type="TextEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -33.5
+margin_top = -21.0
+margin_right = 33.5
+text = "123"
+readonly = true
+fold_gutter = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+caret_block_mode = true
+
+[node name="vs" type="VSlider" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -8.0
+margin_top = 22.0
+margin_right = 7.0
+margin_bottom = 162.0
+step = 0.01
+
+[node name="shd" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -25.0
+margin_right = 25.0
+margin_bottom = 20.0
+shortcut_in_tooltip = false
+action_mode = 0
+
+[connection signal="mouse_entered" from="te" to="." method="_on_te_mouse_entered"]
+[connection signal="mouse_exited" from="te" to="." method="_on_te_mouse_exited"]
+[connection signal="text_changed" from="te" to="." method="_on_te_text_changed"]
+[connection signal="value_changed" from="vs" to="." method="_on_vs_value_changed"]
+[connection signal="button_down" from="shd" to="." method="_on_shd_button_down"]

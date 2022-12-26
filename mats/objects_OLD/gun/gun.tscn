@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://matireals/objects/gun/gun.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 27.2
+height = 40.0
+
+[node name="gun" type="RigidBody2D" groups=["SN", "guns"]]
+z_index = -1
+collision_layer = 0
+collision_mask = 65
+physics_material_override = SubResource( 1 )
+gravity_scale = 30.0
+script = ExtResource( 1 )
+gun_name = "foltest"
+
+[node name="c" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -2 )
+polygon = PoolVector2Array( -7.8125, 7.09375, -11.8438, 6.23438, -7.92188, -0.578125, -9.45313, -1.14063, -27.4927, 4.24205, -28.8066, 1.22008, -28.754, -2.27489, -27.9657, -4.95525, -17.8749, -5.76987, -10.0469, -5.25, 29, -5, 31, -7, 32, -5, 36, -5, 36, -3, 32, -3, 24.2689, -0.26022, -1, 0, -5, 2 )
+
+[node name="p" type="Polygon2D" parent="c"]
+
+[node name="ar" type="Area2D" parent="."]
+visible = false
+light_mask = 18
+position = Vector2( 12.238, -4.576 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="c" type="CollisionShape2D" parent="ar"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="b_pos" type="Position2D" parent="."]
+position = Vector2( 37, -6 )
+
+[connection signal="attacking" from="." to="." method="_on_gun_attacking"]
+[connection signal="body_entered" from="ar" to="." method="_on_ar_body_entered"]
+[connection signal="body_exited" from="ar" to="." method="_on_ar_body_exited"]

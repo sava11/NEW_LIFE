@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mats/objects_OLD/cr_lvls/line_agled.gd" type="Script" id=1]
+
+[node name="p" type="Polygon2D"]
+light_mask = 3
+z_index = 1
+script = ExtResource( 1 )
+w = 0.0
+
+[node name="s" type="StaticBody2D" parent="."]
+
+[node name="c" type="CollisionPolygon2D" parent="s"]

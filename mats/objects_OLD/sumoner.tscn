@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://matireals/objects/sumoner.gd" type="Script" id=1]
+
+[node name="cube_sumoner" type="Position2D" groups=["sumoner"]]
+script = ExtResource( 1 )
+gr_power = 3500.0

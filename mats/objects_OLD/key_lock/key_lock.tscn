@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://matireals/objects/key_lock/key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://matireals/objects/key_lock/lock.tscn" type="PackedScene" id=4]
+
+[node name="key_lock" type="Node2D"]
+
+[node name="key" parent="." instance=ExtResource( 3 )]
+
+[node name="lock" parent="." instance=ExtResource( 4 )]
